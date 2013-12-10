@@ -5,4 +5,5 @@ module Matrices
 	require "matrices/matriz"
 	require "matrices/matriz_dispersa"
 	require "matrices/matriz_densa"
+	require "matrices/matrizDSL.rb"
 end
