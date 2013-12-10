@@ -20,6 +20,7 @@ end
 desc "Probando DSL."
 task :DSL do
         sh "ruby -I. lib/matrices/matrizDSL.rb"
+end
 
 Rake::RDocTask.new do |rd|
    rd.main = "README.md"
