@@ -17,6 +17,10 @@ task :test do
         sh "ruby -Ilib test/tc_matrices.rb"
 end
 
+desc "Probando DSL."
+task :DSL do
+        sh "ruby -I. lib/matrices/matrizDSL.rb"
+
 Rake::RDocTask.new do |rd|
    rd.main = "README.md"
    rd.rdoc_files.include("README.md", "lib/**/*.rb")
