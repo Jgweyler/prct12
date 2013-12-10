@@ -1,11 +1,23 @@
-Práctica 11
+Práctica 12
 ==============================================================
 
 Introducción
 ------------
 
-Considerando el desarrollo de la gema para la representación de matrices (_prácticas anteriores_), se deberá documentar, usando la herramienta **RDoc** y además, se debe desarrollar los métodos de `suma` y `producto` de matrices, siguiendo la filosofía de la programación funcional. 
-Vamos a trabajar con integración continua, con la herramienta **Travis** y seguimiento continuo de las pruebas, gracias a **Guard**. Usaremos pruebas unitarias **Unit Testing** y expectativas(**TDD**).
+Considerando el desarrollo de la gema para la representación de matrices (_prácticas anteriores_), se deberá hacer uso de **Gemnasium**, para seguir las dependencias de la gema.
+Además se deberá diseñar e implementar un _Lenguaje de Dominio Específico (DSL)_ 
+
+Un posilbe ejemplo del mismo sería el siguiente:
+
+```
+ejemplo = MatrixDSL.new("suma") do 
+  option "densa" 
+  option "console"
+
+  operand [[1,2,3],[4,5,6],[7,8,9]]  
+  operand [[1,1,1],[1,1,1],[1,1,1]]  
+end
+``` 
 
 Documentación
 ------------
@@ -32,6 +44,7 @@ La organización de los ficheros y directorios en esta práctica es la siguiente
 			matriz_densa.rb
 			matriz_dispersa.rb
 			version.rb
+			matrizDSL.rb
 	/test
 		tc_matrices.rb
 	/doc

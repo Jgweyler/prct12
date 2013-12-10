@@ -1,4 +1,5 @@
 class MatrixDSL
+
 attr_accessor :operando, :accion
   
   def initialize(acc,&block)
@@ -26,9 +27,21 @@ attr_accessor :operando, :accion
 	    output << " = " 
 	    output << (operando[0]*operando[1]).to_s
 	    output
-    end
-    
+    end 
   end
+  
+  #método para la fácil comprobación en las expectativas
+  #solo con el resultado de la operacion
+  def resultado
+	output = accion
+    if (accion== "Suma") 
+		(operando[0]+operando[1]).to_s   
+    elsif (accion== "Resta") 
+	    (operando[0]-operando[1]).to_s
+    elsif (accion== "Producto") 
+		(operando[0]*operando[1]).to_s
+    end
+   end
   
   def option(mod)
 	if (mod=="console")
@@ -37,8 +50,7 @@ attr_accessor :operando, :accion
 	  fsalida=File.new('pruebas.txt','a+') # la a+ indica que añade a ese fichero (no sobreescribe).
           fsalida.puts self
           fsalida.close
-        end
-        
+    end
   end
   
   def operand(f,c,lista)

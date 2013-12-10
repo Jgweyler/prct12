@@ -96,3 +96,23 @@ describe Matriz do
 	end
 end
 
+
+describe MatrixDSL do 
+	@ejemplo1 = MatrixDSL.new("Suma") do 
+		operand(2,2,[1,1,1,1])
+		operand(2,2,[1,1,1,1])
+	end
+	@ejemplo1.resultado.should == ('[[2,2],[2,2]]') 
+  
+	@ejemplo2 = MatrixDSL.new("Resta") do 
+		operand(2,2,[2,2,2,2])
+		operand(2,2,[1,1,1,1])
+	end
+	@ejemplo2.resultado.should == ('[[1,1],[1,1]]') 
+  
+	@ejemplo3 = MatrixDSL.new("Producto") do 
+		operand(2,2,[1,2,3,4])
+		operand(2,2,[1,2,3,4])
+	end
+  	@ejemplo3.resultado.should == ('[[7,10],[15,22]]') 
+end
