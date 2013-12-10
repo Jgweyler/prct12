@@ -3,8 +3,8 @@ class MatrixDSL
 attr_accessor :operando, :accion
   
   def initialize(acc,&block)
-    self.accion=acc
-    self.operando=[]
+    self.accion=acc          #Determina la accion que realizará.
+    self.operando=[]	     #Array que almacenará los operandos.
     instance_eval &block
   end
 
@@ -13,26 +13,26 @@ attr_accessor :operando, :accion
     if (accion== "Suma") 
 	    output << "\n#{'=' * accion.size}\n\n"
 	    output << " = " 
-	    output << (operando[0]+operando[1]).to_s
+	    output << (operando[0]+operando[1]).to_s   #Mostrará el resultado de la suma de ambos operandos.
 	    output
    
     elsif (accion== "Resta") 
 	    output << "\n#{'=' * accion.size}\n\n"
 	    output << " = " 
-	    output << (operando[0]-operando[1]).to_s
+	    output << (operando[0]-operando[1]).to_s   #Mostrará el resultado de la resta de ambos operandos.
 	    output
    
     elsif (accion== "Producto") 
 	    output << "\n#{'=' * accion.size}\n\n"
 	    output << " = " 
-	    output << (operando[0]*operando[1]).to_s
+	    output << (operando[0]*operando[1]).to_s   #Mostrará el resultado de la resta de ambos operandos.
 	    output
     end 
   end
   
   #método para la fácil comprobación en las expectativas
   #solo con el resultado de la operacion
-  def resultado
+  def resultado         
 	output = accion
     if (accion== "Suma") 
 		(operando[0]+operando[1]).to_s   
@@ -45,16 +45,16 @@ attr_accessor :operando, :accion
   
   def option(mod)
 	if (mod=="console")
-	 puts self
+	 puts self                            #Muestra por pantalla el resultado.
 	elsif (mod=="file")
-	  fsalida=File.new('pruebas.txt','a+') # la a+ indica que añade a ese fichero (no sobreescribe).
+	  fsalida=File.new('pruebas.txt','a+') # la a+ indica que añade a ese fichero (sin sobreescribir) el resultado.
           fsalida.puts self
           fsalida.close
     end
   end
   
   def operand(f,c,lista)
-      x=Matriz.constructor(f,c,lista)
+      x=Matriz.constructor(f,c,lista)      #Introduce un operando (de tipo matriz) dentro del array "operando".
       self.operando.push x
   end
 end
